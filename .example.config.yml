@@ -1,0 +1,5 @@
+speech:
+  model: 'jamba-1.5-mini'
+  temperature: 1
+  ans_max_length: 70
+  max_tokens: 1500
