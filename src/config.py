@@ -10,7 +10,7 @@ def get_config(config_path: str):
         return IConfig(**data)
 
 
-class Speech(BaseModel):
+class LanguageModel(BaseModel):
     model: str
     temperature: float
     ans_max_length: int
@@ -21,7 +21,7 @@ class IConfig(BaseModel):
     """
     Base config class
     """
-    speech: Speech
+    language_model: LanguageModel
 
 
 config = get_config('config.yaml')
