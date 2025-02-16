@@ -26,3 +26,10 @@ class LLMClientDeepseek(LLMClientBase):
         message = {'role': 'user', 'content': message}
         response = await self.client.chat(model=self.model, messages=[message])
         return response
+
+
+def get_requester(model: str) -> LLMClientBase:
+    if 'deepseek-r1' in model:
+        return LLMClientDeepseek(model)
+    else:
+        raise InvalidModelError(model)
