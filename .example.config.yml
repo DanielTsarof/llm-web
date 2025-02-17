@@ -1,3 +1,10 @@
+uvicorn:
+  enable_auto_reload: False
+  # Available options are "critical", "error", "warning", "info", "debug", "trace"
+  log_level: "info"
+  num_workers: 1
+  root_path: ""
+
 language_model:
   model: 'deepseek-r1:7b'
   temperature: 1

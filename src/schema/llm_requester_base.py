@@ -1,4 +1,7 @@
 from abc import ABC, abstractmethod
+from typing import Dict, List
+
+Messages = List[Dict[str, str]]
 
 
 class LLMClientBase(ABC):
@@ -8,5 +11,5 @@ class LLMClientBase(ABC):
         pass
 
     @abstractmethod
-    async def chat(self, message: str, max_length: int):
+    async def chat(self, messages: Messages, max_length: int):
         pass
