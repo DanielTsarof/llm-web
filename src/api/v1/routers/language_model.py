@@ -13,7 +13,11 @@ llm_router = APIRouter()
 async def post_completions_handler(messages: Messages):
     try:
         response = await llm_request(messages)
-        response = LLMResponse(role=response.message.role, content=response.message.content, images=response.message.images)
+        response = LLMResponse(
+            role=response.message.role,
+            content=response.message.content,
+            images=response.message.images
+            )
         return JSONResponse(response.model_dump_json(), status_code=200)
     except MessageTooLongError:
         return JSONResponse(

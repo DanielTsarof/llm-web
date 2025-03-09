@@ -32,7 +32,6 @@ class LLMClientDeepseek(LLMClientBase):
         if self.count_messages_tokens(messages) > config.language_model.max_tokens:
             raise MessageTooLongError()
         response = await self.client.chat(model=self.model, messages=messages)
-        print(response)
         return response
 
 
