@@ -4,7 +4,7 @@ import tiktoken
 from ollama import AsyncClient
 
 from config import config
-from schema.constants import ENCODINGS
+from constants import ENCODINGS
 from schema.exceptions import MessageTooLongError, InvalidModelError
 from schema.llm_requester_base import LLMClientBase, Messages
 
