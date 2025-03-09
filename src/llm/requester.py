@@ -13,7 +13,7 @@ class LLMClientDeepseek(LLMClientBase):
     def __init__(self, model: str):
         self.model = model
         self.client = AsyncClient()
-        self.encoding = tiktoken.get_encoding(ENCODINGS.get(self.model))
+        self.encoding = tiktoken.get_encoding(ENCODINGS.get(self.model[:self.model.index(':')]))
         if self.encoding is None:
             raise InvalidModelError(self.model)
 
@@ -32,6 +32,7 @@ class LLMClientDeepseek(LLMClientBase):
         if self.count_messages_tokens(messages) > config.language_model.max_tokens:
             raise MessageTooLongError()
         response = await self.client.chat(model=self.model, messages=messages)
+        print(response)
         return response
 
 

@@ -130,4 +130,5 @@ dmypy.json
 
 # custom
 *.onnx
-config.yaml
+*/config.yml
+*/.env

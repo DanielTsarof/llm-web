@@ -5,5 +5,6 @@ This is a web service project for hosting llm and subsequent access to them via 
 
 ## Setup
 
-    cp .example.config.yaml src/config.yaml
+    cp .example.config.yml src/config.yml
     cp .example.env src/.env
+    docker compose up --build

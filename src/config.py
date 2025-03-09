@@ -18,8 +18,8 @@ def get_config(config_path: str):
 
 
 class UvicornConfig(BaseModel):
-    host: str = _env["APP_URL"] or "127.0.0.1"
-    port: int = int(_env["APP_PORT"] or 5000)
+    host: str = _env["LLM_APP_URL"] or "127.0.0.1"
+    port: int = int(_env["LLM_APP_PORT"] or 5000)
     enable_auto_reload: bool
     log_level: Literal["critical", "error", "warning", "info", "debug", "trace"]
     num_workers: int
@@ -38,6 +38,7 @@ class IConfig(BaseModel):
     Base config class
     """
     language_model: LanguageModel
+    uvicorn: UvicornConfig
 
 
 config = get_config(CONFIG_PATH)

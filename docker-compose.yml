@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  llm-app:
+    security_opt:
+      - no-new-privileges:true
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    image: "llm-app:0.1.0"
+    container_name: "llm-app"
+    env_file:
+      - "src/.env"
+    #command: python3.11 main.py
+    ports:
+      - "127.0.0.1:5000:5000"
+    volumes:
+      - ./logs:/app/logs
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
