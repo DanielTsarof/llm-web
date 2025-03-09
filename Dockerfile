@@ -21,7 +21,7 @@ RUN apt-get update && \
 # Creating workdir and copying files
 RUN mkdir -p /app
 WORKDIR /app
-COPY ./src/* ./
+COPY src .
 COPY requirements.txt ./
 
 # Installing ollama
@@ -35,4 +35,4 @@ EXPOSE 5000
 
 # Clearing entrypoint
 ENTRYPOINT []
-CMD ["/usr/bin/python3.11", "main.py"]
+CMD ["python3.11", "main.py"]
