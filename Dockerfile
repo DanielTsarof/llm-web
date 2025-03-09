@@ -26,7 +26,8 @@ COPY requirements.txt ./
 
 # Installing ollama
 RUN curl -fsSL https://ollama.com/install.sh | sh
-#RUN ollama pull $MODEL_NAME
+RUN ollama serve
+RUN ollama pull $MODEL_NAME
 
 # Installing dependenses
 RUN python3.11 -m pip install -r requirements.txt
